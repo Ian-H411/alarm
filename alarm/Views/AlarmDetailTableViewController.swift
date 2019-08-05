@@ -17,7 +17,7 @@ class AlarmDetailTableViewController: UITableViewController {
     
     @IBOutlet weak var enableDisableButton: UIButton!
     
-    var alarm: Alarm?{
+    var alarmLanding: Alarm?{
         didSet{updateViews()}
     }
     
@@ -25,7 +25,7 @@ class AlarmDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let alarmUnwrapped = alarm {
+        if let alarmUnwrapped = alarmLanding {
             alarmIsOn = alarmUnwrapped.isEnabled}
         updateViews()
         
@@ -33,16 +33,19 @@ class AlarmDetailTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    private func updateViews(){
-        if let alarm = alarm {
+     func updateViews(){
+        loadViewIfNeeded()
+        if let alarm = alarmLanding {
             timePicker.date = alarm.fireDate
             titleText.text = alarm.name
             if alarm.isEnabled{
                 enableDisableButton.backgroundColor = .red
                 enableDisableButton.setTitle("disable", for: .normal)
+                alarmIsOn = true
             } else {
                 enableDisableButton.backgroundColor = .green
                 enableDisableButton.setTitle("Enable", for: .normal)
+                alarmIsOn = false
             }
             
         } else {
@@ -51,13 +54,32 @@ class AlarmDetailTableViewController: UITableViewController {
             enableDisableButton.backgroundColor = .green
             enableDisableButton.setTitle("Enable", for: .normal)
         }
+        tableView.reloadData()
     }
     //MARK: - Actions
     
     @IBAction func enableDisableButtonTapped(_ sender: UIButton) {
-    }
+            if alarmIsOn{
+                alarmIsOn = false
+                enableDisableButton.backgroundColor = .green
+                enableDisableButton.setTitle("Enable", for: .normal)
     
+            } else{
+                alarmIsOn = true
+                enableDisableButton.backgroundColor = .red
+                enableDisableButton.setTitle("disable", for: .normal)
+        }
+    
+    }
     @IBAction func saveButtonTapped(_ sender: Any) {
+        if titleText.text! == "" {return}
+        if let alarm = alarmLanding{
+            AlarmController.sharedInstance.updateAlarm(new: alarm, new: timePicker.date, new: titleText.text!, enabled: alarmIsOn)
+            
+        } else{
+            AlarmController.sharedInstance.addAlarm(fireDate: timePicker.date, name: titleText.text!, enabled: alarmIsOn)
+        }
+        navigationController?.popViewController(animated: true)
     }
     
     

@@ -14,8 +14,8 @@ class AlarmController {
     
     var alarmCollection: [Alarm] = []
     
-    var mockAlarms: [Alarm] = [Alarm(name: "wake up", enabled: true, fireDate: Date()), Alarm(name: "dosomethingproductiveyalazy", enabled: false, fireDate: Date()),Alarm(name: "go to sleep", enabled: true, fireDate: Date()) ]
-    
+//    var alarmCollection: [Alarm] = [Alarm(name: "wake up", enabled: true, fireDate: Date()), Alarm(name: "dosomethingproductiveyalazy", enabled: false, fireDate: Date()),Alarm(name: "go to sleep", enabled: true, fireDate: Date()) ]
+//    
     //CRUD
     
     //MARK: CREATE

@@ -46,8 +46,10 @@ class SwitchTableViewCell: UITableViewCell {
     
     func updateViews(){
         if let alarm = alarm {
+            let formater = DateFormatter()
+            formater.timeStyle = .short
             nameLabel.text = alarm.name
-            timeLabel.text = alarm.fireTimeAsString
+            timeLabel.text = formater.string(from: alarm.fireDate)
             alarmSwitch.isOn = alarm.isEnabled
         } else {
             nameLabel.text = ""
