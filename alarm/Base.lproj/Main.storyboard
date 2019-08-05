@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="140" id="cuX-BG-Veg" customClass="SwitchTableViewCell" customModule="alarm" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwitchTableViewCell" rowHeight="140" id="cuX-BG-Veg" customClass="SwitchTableViewCell" customModule="alarm" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cuX-BG-Veg" id="tYE-LB-iNu">
@@ -29,20 +29,20 @@
                                             <rect key="frame" x="29" y="11" width="365" height="118"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Time)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dse-va-Suy">
-                                                    <rect key="frame" x="0.0" y="44.5" width="120" height="29"/>
+                                                    <rect key="frame" x="0.0" y="48.5" width="120" height="21.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="AkA-Ns-Mou"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocR-5P-LN4">
-                                                    <rect key="frame" x="169" y="44" width="100" height="30"/>
+                                                    <rect key="frame" x="169" y="47.5" width="100" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="fZK-1A-KT1"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -65,7 +65,7 @@
                                 <connections>
                                     <outlet property="alarmSwitch" destination="kK8-U3-2ON" id="HZW-ZI-O2a"/>
                                     <outlet property="nameLabel" destination="ocR-5P-LN4" id="6oE-b1-fk4"/>
-                                    <outlet property="timeLabel" destination="VxG-li-g2L" id="HOr-ee-LAd"/>
+                                    <outlet property="timeLabel" destination="dse-va-Suy" id="Rc8-W7-Zii"/>
                                     <segue destination="b3J-tC-BJW" kind="show" id="YCv-Eu-Ohi"/>
                                 </connections>
                             </tableViewCell>
