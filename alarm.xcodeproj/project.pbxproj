@@ -13,6 +13,7 @@
 		25768CD122F8A37A00E436E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25768CCF22F8A37A00E436E6 /* LaunchScreen.storyboard */; };
 		25768CDD22F8A55F00E436E6 /* AlarmListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25768CDC22F8A55F00E436E6 /* AlarmListTableViewController.swift */; };
 		25768CDF22F8A5AC00E436E6 /* AlarmDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25768CDE22F8A5AC00E436E6 /* AlarmDetailTableViewController.swift */; };
+		25768CE122F8A79B00E436E6 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25768CE022F8A79B00E436E6 /* SwitchTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		25768CD222F8A37A00E436E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25768CDC22F8A55F00E436E6 /* AlarmListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListTableViewController.swift; sourceTree = "<group>"; };
 		25768CDE22F8A5AC00E436E6 /* AlarmDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailTableViewController.swift; sourceTree = "<group>"; };
+		25768CE022F8A79B00E436E6 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				25768CDC22F8A55F00E436E6 /* AlarmListTableViewController.swift */,
 				25768CDE22F8A5AC00E436E6 /* AlarmDetailTableViewController.swift */,
+				25768CE022F8A79B00E436E6 /* SwitchTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25768CDF22F8A5AC00E436E6 /* AlarmDetailTableViewController.swift in Sources */,
+				25768CE122F8A79B00E436E6 /* SwitchTableViewCell.swift in Sources */,
 				25768CC722F8A37900E436E6 /* AppDelegate.swift in Sources */,
 				25768CDD22F8A55F00E436E6 /* AlarmListTableViewController.swift in Sources */,
 			);
