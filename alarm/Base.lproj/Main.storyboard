@@ -163,7 +163,6 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSZ-26-PeY">
                                                     <rect key="frame" x="2" y="2" width="410" height="39.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                    <state key="normal" title="enable/disable"/>
                                                     <connections>
                                                         <action selector="enableDisableButtonTapped:" destination="b3J-tC-BJW" eventType="touchUpInside" id="9QV-GN-Fi3"/>
                                                     </connections>
