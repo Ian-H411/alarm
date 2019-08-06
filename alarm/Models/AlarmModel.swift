@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Alarm: Equatable{
+class Alarm: Equatable, Codable{
     static func == (lhs: Alarm, rhs: Alarm) -> Bool {
         return lhs.fireDate == rhs.fireDate && lhs.name == rhs.name && lhs.isEnabled == rhs.isEnabled && lhs.UUID == rhs.UUID && lhs.fireTimeAsString == rhs.fireTimeAsString
     }
