@@ -7,8 +7,44 @@
 //
 
 import Foundation
+import UserNotifications
 
-class AlarmController {
+
+protocol AlarmScheduler {
+    func scheduleUserNotifications(for alarm: Alarm)
+    func cancelUserNotifications(for alarm: Alarm)
+}
+extension AlarmScheduler{
+    func scheduleUserNotifications (for alarm: Alarm) {
+        let alarmNote = UNMutableNotificationContent()
+        alarmNote.body = "your alarm has gone off"
+        alarmNote.title = "\(alarm.name)"
+        
+        var date = DateComponents()
+        date.hour = Calendar.current.component(.hour, from: alarm.fireDate)
+        date.minute = Calendar.current.component(.minute, from: alarm.fireDate)
+        date.second = 0
+
+        let calendar = UNCalendarNotificationTrigger(dateMatching: date , repeats: true)
+        
+        let request = UNNotificationRequest(identifier: alarm.uuid, content: alarmNote, trigger: calendar)
+        print("notification set")
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error{
+                print("notification Failed")
+                print(error.localizedDescription)
+                print(error)
+            }
+        }
+    }
+    
+    func cancelUserNotifications (for alarm: Alarm){
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [alarm.uuid])
+        print("print notification removed")
+    }
+}
+
+class AlarmController: AlarmScheduler {
     
     static var sharedInstance = AlarmController()
     
@@ -21,15 +57,19 @@ class AlarmController {
     func addAlarm(fireDate: Date, name: String, enabled: Bool){
         let newAlarm = Alarm(name: name, enabled: enabled, fireDate: fireDate)
         alarmCollection.append(newAlarm)
+        scheduleUserNotifications(for: newAlarm)
         saveToPersistentStore()
     }
     
     //MARK: update
     
     func updateAlarm(new alarm: Alarm, new fireTime: Date, new name: String, enabled: Bool){
+        cancelUserNotifications(for: alarm)
         alarm.fireDate = fireTime
         alarm.name = name
         alarm.isEnabled = enabled
+        scheduleUserNotifications(for: alarm)
+        
         saveToPersistentStore()
     }
     
@@ -38,6 +78,7 @@ class AlarmController {
     func delete(alarm: Alarm){
         guard let index = alarmCollection.firstIndex(of: alarm) else {return}
         alarmCollection.remove(at: index)
+        cancelUserNotifications(for: alarm)
         saveToPersistentStore()
     }
     
@@ -47,8 +88,10 @@ class AlarmController {
     func toggleEnabled(for alarm: Alarm){
         if alarm.isEnabled{
             alarm.isEnabled = false
+            scheduleUserNotifications(for: alarm)
         } else {
             alarm.isEnabled = true
+            cancelUserNotifications(for: alarm)
         }
     }
     
@@ -88,3 +131,4 @@ class AlarmController {
     }
     
 }
+
